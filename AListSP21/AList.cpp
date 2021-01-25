@@ -2,29 +2,55 @@
 
 AList::AList()
 {
+	length = 0;
+	currentPos = 0;
+}
+
+AList::~AList()
+{
+	MakeEmpty();
 }
 
 void AList::MakeEmpty()
 {
+	length = 0;
+	currentPos = 0;
 }
 
 bool AList::IsFull() const
 {
-	return false;
+	if (length > MAX_ITEMS - 1)
+		return true;
+	else return false;
 }
 
 int AList::GetLength() const
 {
-	return 0;
+	return length;
 }
 
 ItemType AList::GetItem(ItemType item, bool& found)
 {
-	return ItemType();
+	found = false;
+	for (int i = 0; i < length; i++)
+	{
+		if (item.ComparedTo(info[i]) == EQUAL);
+		{
+			found = true;
+			return info[i];
+		}
+	}
+	if (found == false)
+		return item;
 }
 
 void AList::PutItem(ItemType item)
 {
+	if (!IsFull())
+	{
+		info[length] = item;
+		length++;
+	}
 }
 
 void AList::DeleteItem(ItemType item)

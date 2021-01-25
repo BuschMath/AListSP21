@@ -7,6 +7,7 @@ class AList
 {
 public:
 	AList();
+	~AList();
 	void MakeEmpty();
 	bool IsFull() const;
 	int GetLength() const;
