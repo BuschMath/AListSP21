@@ -59,7 +59,7 @@ void AList::DeleteItem(ItemType item)
 	{
 		if (item.ComparedTo(info[i]) == EQUAL)
 		{
-			for (int j = i; j < length - 2; j++)
+			for (int j = i; j <= length - 2; j++)
 			{
 				info[j] = info[j + 1];
 			}
@@ -70,9 +70,11 @@ void AList::DeleteItem(ItemType item)
 
 void AList::ResetList()
 {
+	currentPos = 0;
 }
 
 ItemType AList::GetNextItem()
 {
-	return ItemType();
+	currentPos++;
+	return info[currentPos-1];
 }
