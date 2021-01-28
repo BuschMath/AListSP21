@@ -55,6 +55,17 @@ void AList::PutItem(ItemType item)
 
 void AList::DeleteItem(ItemType item)
 {
+	for (int i = 0; i < length; i++)
+	{
+		if (item.ComparedTo(info[i]) == EQUAL)
+		{
+			for (int j = i; j < length - 2; j++)
+			{
+				info[j] = info[j + 1];
+			}
+			length--;
+		}
+	}
 }
 
 void AList::ResetList()
