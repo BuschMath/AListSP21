@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="AList.cpp" />
     <ClCompile Include="ItemType.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

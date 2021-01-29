@@ -34,7 +34,7 @@ ItemType AList::GetItem(ItemType item, bool& found)
 	found = false;
 	for (int i = 0; i < length; i++)
 	{
-		if (item.ComparedTo(info[i]) == EQUAL);
+		if (item.ComparedTo(info[i]) == EQUAL)
 		{
 			found = true;
 			return info[i];
