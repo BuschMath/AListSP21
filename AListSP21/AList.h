@@ -8,14 +8,14 @@ class AList
 public:
 	AList();
 	~AList();
-	void MakeEmpty();
-	bool IsFull() const;
-	int GetLength() const;
-	ItemType GetItem(ItemType item, bool& found);
-	void PutItem(ItemType item);
-	void DeleteItem(ItemType item);
-	void ResetList();
-	ItemType GetNextItem();
+	void MakeEmpty();								// no update
+	bool IsFull() const;							// no update
+	int GetLength() const;							// no update
+	ItemType GetItem(ItemType item, bool& found);	// update
+	void PutItem(ItemType item);					// update
+	void DeleteItem(ItemType item);					// update
+	void ResetList();								// no update
+	ItemType GetNextItem();							// no update
 
 private:
 	int length;
