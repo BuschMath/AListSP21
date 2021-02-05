@@ -31,17 +31,31 @@ int AList::GetLength() const
 
 ItemType AList::GetItem(ItemType item, bool& found)
 {
+	int high = length - 1;
+	int mid = high / 2;
+	int low = 0;
 	found = false;
-	for (int i = 0; i < length; i++)
+
+	while (low < mid)
 	{
-		if (item.ComparedTo(info[i]) == EQUAL)
+		switch (item.ComparedTo(info[mid]))
 		{
-			found = true;
-			return info[i];
+		case EQUAL: found = true;
+			return info[mid];
+			break;
+		case LESS:	high = mid - 1;
+			mid = (high + low) / 2;
+			break;
+		case GREATER:	low = mid + 1;
+			mid = (high + low) / 2;
+			break;
+		default:	return item;
+			break;
 		}
 	}
-	if (found == false)
-		return item;
+
+	found = false;
+	return item;
 }
 
 void AList::PutItem(ItemType item)
